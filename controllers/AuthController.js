@@ -13,7 +13,7 @@ export async function login(req, res) {
         authSchema.parse(req.body);
         const token = await handleLogin(req.body);
 
-        res.status(500).json({
+        res.status(200).json({
             status: true,
             message: "Login successfull",
             data: {
