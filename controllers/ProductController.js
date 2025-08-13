@@ -11,7 +11,7 @@ ProcutValidationOnCreate.required({});
 
 export async function listProduct(req, res) {
     try {
-        const products = await Product.find({}).exec();
+        let products = await Product.find({}).exec();
         res.json({
             status: true,
             data: products
