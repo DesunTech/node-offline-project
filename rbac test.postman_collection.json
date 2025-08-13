@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "7a7f3eaf-6563-4856-9369-a84dbfba98ae",
+		"name": "rbac test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46607431",
+		"_collection_link": "https://winter-meteor-750873.postman.co/workspace/My-Workspace~2c5c21f4-9764-4c26-822e-6863b75ffe89/collection/46607431-7a7f3eaf-6563-4856-9369-a84dbfba98ae?action=share&source=collection_link&creator=46607431"
+	},
+	"item": [
+		{
+			"name": "blog",
+			"item": [
+				{
+					"name": "create blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"This is demo blog\",\n  \"description\": \"This is demo blog desp\"\n}"
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}/blogs",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"New Blog\",\n  \"description\": \"This is demo blog desp\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}/blogs/update/689c489dbbf0347619c08601",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"blogs",
+								"update",
+								"689c489dbbf0347619c08601"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete blog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}/blogs/delete/689c48c5bbf0347619c08606",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"blogs",
+								"delete",
+								"689c48c5bbf0347619c08606"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "blog list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}/blogs",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"blogs"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYXV0aG9yQGdtYWlsY29tIiwiYWN0aW9ucyI6WyJ2aWV3LmJsb2ciLCJ1cGRhdGUuYmxvZyJdfSwiaWF0IjoxNzU1MDcyMzAyLCJleHAiOjE3NTUwNzU5MDJ9.4zMU2unlkz6wx4wlaecAMq5edOu8_EZD3r5SJGIctVQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"author@gmailcom\",\n  \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_BASE_URL}}/auth/login",
+					"host": [
+						"{{API_BASE_URL}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"dev@gmailcom\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}/auth/login",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "324"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"144-gV0JTHdCbDQRR67aD/CLNIIv5BQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Aug 2025 08:04:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Login successfull\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiZGV2QGdtYWlsY29tIiwiYWN0aW9ucyI6WyJjcmVhdGUuYmxvZyIsInZpZXcuYmxvZyIsImRlbGV0ZS5ibG9nIiwidXBkYXRlLmJsb2ciXX0sImlhdCI6MTc1NTA3MjI4MywiZXhwIjoxNzU1MDc1ODgzfQ.QCsRDvf1vdN5xtF3qTQ9_2kpHBqFInICOSdyoUmPlBI\"\n    }\n}"
+				},
+				{
+					"name": "login author",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"author@gmailcom\",\n  \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}/auth/login",
+							"host": [
+								"{{API_BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "290"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"122-qfx8GdZhTk5ENUv3zO5dnCmw9Kk\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 13 Aug 2025 08:05:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Login successfull\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiYXV0aG9yQGdtYWlsY29tIiwiYWN0aW9ucyI6WyJ2aWV3LmJsb2ciLCJ1cGRhdGUuYmxvZyJdfSwiaWF0IjoxNzU1MDcyMzAyLCJleHAiOjE3NTUwNzU5MDJ9.4zMU2unlkz6wx4wlaecAMq5edOu8_EZD3r5SJGIctVQ\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_BASE_URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
