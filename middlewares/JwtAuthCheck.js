@@ -8,11 +8,14 @@ export async function JwtAuthCheck(req, res, next) {
     }
 
     const token  = authHeader.split('Bearer ')[1];
-
     try {
         const jwtDocoaded = jwt.decode(token, process.env.JWT_SECRET);
         const userData = jwtDocoaded.data;
-        req.user = await User.findOne({email: userData.email});
+
+        const authUser = await User.findOne({email: userData.email});
+        authUser.actions = userData.actions;
+
+        req.user = authUser;
         next();
     } catch(e) {
         return res.status(403).json({ message: 'Invalid token' });

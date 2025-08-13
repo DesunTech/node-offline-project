@@ -1,9 +1,9 @@
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
-import { email } from "zod";
+import Role from "../models/Role.js";
 
-export async function createUser(userData) {
+export async function handleRegister(userData) {
     if(!userData.password) {
         throw new Error("Invalid pasword");
     }
@@ -25,9 +25,14 @@ export async function handleLogin(userData) {
         throw new Error("Invalid password");
     }
 
+    const userRole = user.role;
+
+    // now find all the actions against this role
+    const role = await Role.findOne({name: userRole}).exec();
+
     const tokenData = {
         email: user.email,
-        name: user.name
+        actions: role.actions
     }
 
     const token = jwt.sign({

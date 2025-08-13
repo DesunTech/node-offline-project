@@ -6,6 +6,12 @@ const formatError = (isses) => {
     })
 }
 
+function canAccess(action, user) {
+    const currentUserActions = user.actions;
+    return currentUserActions.includes(action);
+}
+
 export {
-    formatError
+    formatError,
+    canAccess
 }

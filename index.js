@@ -1,15 +1,15 @@
 import 'dotenv/config';
-import express from 'express';
 import connectDb from './db.js';
-import productRoutes from './routes/productRoutes.js';
-import userRoutes from './routes/userRoutes.js';
-import authRoutes from './routes/authRoutes.js';
 
 try {
     await connectDb();
 } catch( e ) {
     console.log(e.messsage);
 }
+
+import express from 'express';
+import blogRoutes from './routes/blogRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express()
 const port = 3000 // app port
@@ -18,8 +18,7 @@ const port = 3000 // app port
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use('/products', productRoutes);
-app.use('/users', userRoutes);
+app.use('/blogs', blogRoutes);
 app.use('/auth', authRoutes);
 
 // server started here

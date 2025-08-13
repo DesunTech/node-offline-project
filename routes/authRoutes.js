@@ -1,15 +1,12 @@
 import { Router } from "express";
 import {
     login,
-    userOrder
+    register
 } from '../controllers/AuthController.js'
-
-import { JwtAuthCheck } from "../middlewares/JwtAuthCheck.js";
 
 const router = new Router();
 
 router.post('/login', login);
-
-router.get("/user/order", JwtAuthCheck, userOrder);
+router.post('/register', register);
 
 export default router;
